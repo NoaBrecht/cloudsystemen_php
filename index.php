@@ -1,10 +1,3 @@
-<?php
-// Include the database connection file
-include_once("config.php");
-
-// Fetch contacts (in descending order)
-$result = mysqli_query($mysqli, "SELECT * FROM contacts ORDER BY id DESC");
-?>
 <html>
 
 <head>
@@ -13,23 +6,6 @@ $result = mysqli_query($mysqli, "SELECT * FROM contacts ORDER BY id DESC");
 </head>
 
 <body>
-    <table>
-        <tr>
-            <td>Name</td>
-            <td>Age</td>
-            <td>Email</td>
-            <td><a class="button">Add Contact</a></td>
-        </tr>
-        <?php
-        // Print contacts 
-        while ($res = mysqli_fetch_array($result)) {
-            echo "<tr>";
-            echo "<td>" . $res['name'] . "</td>";
-            echo "<td>" . $res['age'] . "</td>";
-            echo "<td>" . $res['email'] . "</td>";
-        }
-        ?>
-    </table>
+    <?php echo "<H1>dit is een H1 vanuit php</H1>" ?>
 </body>
-
 </html>

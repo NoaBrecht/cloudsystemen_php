@@ -1,5 +1,3 @@
-FROM php:8.2-cli
-COPY . /app
-WORKDIR /app
-CMD [ "php", "index.php" ]
-EXPOSE 3000:3306
+FROM php:apache
+COPY . .
+RUN docker-php-ext-install mysqli

@@ -1,24 +1,17 @@
-version: '3'
+version: '3.8'
 services:
-  app:
+  php:
     build: .
     ports:
-      - "5000:5000"
-    links:
-      - database
+      - "80:80"
     depends_on:
       - database
-    
   database:
-    image: mysql/mysql-server:5.7
-
+    image: mysql:latest
     environment:
-      - "MYSQL_ROOT_PASSWORD=root"
       - "MYSQL_USER=root"
       - "MYSQL_PASSWORD=my-secret-pw"
-      - "MYSQL_DATABASE=rolodex"
     volumes:
       - db:/data/db
-      
 volumes:
   db:
