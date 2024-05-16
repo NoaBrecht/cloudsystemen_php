@@ -1,0 +1,24 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    links:
+      - database
+    depends_on:
+      - database
+    
+  database:
+    image: mysql/mysql-server:5.7
+
+    environment:
+      - "MYSQL_ROOT_PASSWORD=root"
+      - "MYSQL_USER=root"
+      - "MYSQL_PASSWORD=my-secret-pw"
+      - "MYSQL_DATABASE=rolodex"
+    volumes:
+      - db:/data/db
+      
+volumes:
+  db:
