@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <?php echo "<h1>Add Contact</h1>" ?>
+    <title>Add Contact</title>
     <style>
         table {
             width: 50%;
@@ -25,18 +25,22 @@
         th {
             background-color: #f2f2f2;
         }
+
+        h2 {
+            color: green;
+        }
     </style>
 </head>
 
 <body>
-    <h2>Add a New Contact</h2>
+    <?php echo "<h2>Dit is een H2 via echo via php via docker</h2>" ?>
 
     <?php
-    // Database configuration using environment variables
-    $servername = getenv('DB_HOST') ?: 'database';
-    $username = getenv('DB_USER') ?: 'root';
-    $password = getenv('DB_PASSWORD') ?: 'my-secret-pw';
-    $dbname = getenv('DB_NAME') ?: 'rolodex';
+    // Database configuration
+    $servername = "database";  // or your database server address
+    $username = "root";        // your database username
+    $password = "my-secret-pw"; // your database password
+    $dbname = "rolodex";       // your database name
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
