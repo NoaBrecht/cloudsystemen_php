@@ -9,8 +9,7 @@ services:
   database:
     image: mysql:latest
     environment:
-      - "MYSQL_USER=root"
-      - "MYSQL_PASSWORD=my-secret-pw"
+      - "MYSQL_ROOT_PASSWORD"
     volumes:
       - db:/data/db
 volumes:
