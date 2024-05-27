@@ -1,3 +1,4 @@
+```
 name: Docker
 
 # This workflow uses actions that are not certified by GitHub.
@@ -6,6 +7,8 @@ name: Docker
 # documentation.
 
 on:
+  schedule:
+    - cron: '18 11 * * *'
   push:
     branches: [ "main" ]
     # Publish semver tags as releases.
@@ -39,10 +42,9 @@ jobs:
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@3.5.0 #v3.1.1
+        uses: sigstore/cosign-installer@v3.5.0 #v3.1.1
         with:
           cosign-release: 'v2.2.4'
-
       # Set up BuildKit Docker container builder to be able to build
       # multi-platform images and export cache
       # https://github.com/docker/setup-buildx-action
@@ -94,3 +96,4 @@ jobs:
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
         run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
+```
