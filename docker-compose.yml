@@ -1,6 +1,7 @@
 version: '3.8'
 services:
   php:
+    image: ghcr.io/noabrecht/cloudsystemen_php:sha256-ee39bbf6c9295692ac1867206c66b722f6a019bf10f18346e845b22e4135b03f.sig
     build: .
     ports:
       - "80:80"
