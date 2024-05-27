@@ -27,7 +27,7 @@
         }
 
         h2 {
-            color: green;
+            color: yellow;
         }
     </style>
 </head>
